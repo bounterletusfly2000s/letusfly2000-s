@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Futurista</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Bienvenida -->
+    <div id="welcome" class="welcome">
+        <h1>¡Bienvenido a la Tienda del Futuro!</h1>
+    </div>
+
+    <!-- Botones de autenticación -->
+    <div class="auth-buttons">
+        <button onclick="showLogin()">Iniciar Sesión</button>
+        <button onclick="showRegister()">Registrarse</button>
+        <button onclick="logout()" id="logout-btn" style="display:none;">Cerrar Sesión</button>
+    </div>
+
+    <!-- Menú hamburguesa -->
+    <div class="menu-icon" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <nav id="menu" class="menu">
+        <ul>
+            <li onclick="filterProducts('gorra')">Gorras</li>
+            <li onclick="filterProducts('locion')">Lociones</li>
+            <li onclick="filterProducts('tenis')">Tenis</li>
+            <li onclick="filterProducts('judie')">Judies</li>
+            <li onclick="filterProducts('accesorio')">Accesorios</li>
+            <li onclick="window.location.href='https://www.instagram.com/let_us_fly_2000s'">Contáctanos</li>
+        </ul>
+    </nav>
+
+    <!-- Contenedor de productos -->
+    <div class="product-container">
+        <div class="product" data-category="gorra">Gorra Negra</div>
+        <div class="product" data-category="locion">Loción Fina</div>
+        <div class="product" data-category="tenis">Tenis Deportivos</div>
+        <div class="product" data-category="judie">Sudadera Oversize</div>
+        <div class="product" data-category="accesorio">Collar de Plata</div>
+        <div class="product" data-category="gorra">Pasamontañas</div>
+        <div class="product" data-category="locion">Perfume de Lujo</div>
+        <div class="product" data-category="tenis">Botas de Cuero</div>
+    </div>
+
+    <!-- Botón de realizar pedido (solo visible si el usuario está autenticado) -->
+    <button id="order-btn" style="display:none;" onclick="showOrderForm()">Realizar Pedido</button>
+
+    <!-- Formulario de pedido -->
+    <div id="order-form" class="modal">
+        <h2>Realizar Pedido</h2>
+        <input type="text" id="address" placeholder="Domicilio">
+        <input type="text" id="address-details" placeholder="Especificaciones del domicilio">
+        <input type="email" id="order-email" placeholder="Correo electrónico">
+        <input type="tel" id="phone" placeholder="Número de teléfono">
+        <button onclick="submitOrder()">Enviar Pedido</button>
+        <button onclick="closeOrderForm()">Cancelar</button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
